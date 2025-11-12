@@ -82,7 +82,7 @@ El día del examen práctico te propondré una serie de mejoras y cambios en ese
 - Haz commit y push de ese archivo, si lo creaste.
 
 ### Recursos adicionales en español
-
+- [Paso a Paso para activar tu proyecto en GitHub Pages- Alura Latam](https://www.aluracursos.com/blog/github-pages)
 - [Guía oficial de GitHub Pages (español)](https://docs.github.com/es/pages)
 - [Introducción a GitHub Pages (español)](https://docs.github.com/es/pages/getting-started-with-github-pages/about-github-pages)
 - [Cómo crear un sitio con GitHub Pages (español)](https://docs.github.com/es/pages/getting-started-with-github-pages/creating-a-github-pages-site)
