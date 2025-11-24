@@ -9,6 +9,7 @@
     body {
       background-color: lightgray;
       padding: 5px;
+      font-family: monospace;
     }
 
     h1 {
@@ -25,6 +26,25 @@
       border: 3px black solid;
       font-size: medium;
     }
+
+    /* Mascota */
+    .mascota {
+      font-size: 80px;
+      margin: 20px 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .ojo {
+      display: inline-block;
+      width: 0.3em;
+      height: 0.3em;
+      background: black;
+      border-radius: 50%;
+      position: relative;
+      vertical-align: middle;
+      transition: transform 0.05s;
+    }
   </style>
 </head>
 
@@ -35,9 +55,35 @@
   <h2>Subtítulo</h2>
   <p>Segundo elemento de parrafo</p>
   <h1>¡HALA MADRID! (No me gusta el futbol)</h1>
+
   <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti vitae quod temporibus laborum asperiores nisi autem numquam porro, quidem sint.</h2>
   <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti vitae quod temporibus laborum asperiores nisi autem numquam porro, quidem sint.</h2>
   <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti vitae quod temporibus laborum asperiores nisi autem numquam porro, quidem sint.</h2>
+
+  <!-- Mascota -->
+  <div class="mascota">
+    (<span class="ojo left"></span>-<span class="ojo right"></span>)
+  </div>
+
+  <script>
+    const ojos = document.querySelectorAll('.ojo');
+    const mascota = document.querySelector('.mascota');
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = mascota.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      ojos.forEach((ojo, index) => {
+        const maxMove = rect.width * 0.05; // máximo 5% del ancho de la cara
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        const angle = Math.atan2(dy, dx);
+
+        ojo.style.transform = `translate(${Math.cos(angle) * maxMove}px, ${Math.sin(angle) * maxMove}px)`;
+      });
+    });
+  </script>
 </body>
 
 </html>
